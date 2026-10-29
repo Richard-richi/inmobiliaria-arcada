@@ -240,19 +240,19 @@ nav ul li:not(:last-child){display:none}
 <dialog id="dlg" aria-label="Ficha del inmueble"></dialog>
 
 <script>
-/* Fotos: por defecto son imágenes libres de Pexels (im = ID de Pexels).
-   Para usar tus propias fotos, añade img:'ruta/foto.jpg' a cualquier inmueble. */
+/* Fotos: imágenes libres de Pexels guardadas en local (im = ID original de Pexels).
+   Las fotos están en la carpeta img/ (propiedad img de cada inmueble). */
 const P=[
-{id:'a',im:31817156,t:'Villa moderna con piscina',z:'Azuqueca de Henares',op:'Venta',tipo:'Casa',p:495000,h:5,b:4,m:320,d:'Villa de diseño en parcela de 900 m² con piscina, salón acristalado y cocina abierta. Suelo radiante y domótica en toda la casa.',f:['Piscina','Garaje 2 coches','Domótica','Jardín']},
-{id:'b',im:30587187,t:'Ático con terraza y vistas',z:'Alcalá de Henares',op:'Venta',tipo:'Piso',p:289000,h:3,b:2,m:118,d:'Ático luminoso con terraza de 30 m² en el centro de Alcalá, a cinco minutos de la Calle Mayor. Reformado en 2024.',f:['Terraza','Ascensor','Aire acondicionado','Trastero']},
-{id:'c',im:8134750,t:'Chalet con jardín y piscina',z:'Azuqueca de Henares',op:'Venta',tipo:'Casa',p:365000,h:4,b:3,m:186,d:'Chalet en urbanización tranquila con jardín privado, garaje y piscina. Colegios y tren a pie.',f:['Jardín','Garaje','Piscina','Cerca del tren']},
-{id:'d',im:27789438,t:'Casa de pueblo restaurada',z:'Molina de Aragón',op:'Venta',tipo:'Casa',p:142000,h:4,b:2,m:210,d:'Casa de piedra restaurada con vigas vistas, chimenea y patio. Ideal como vivienda o casa rural en pleno Alto Tajo.',f:['Chimenea','Patio','Vigas vistas','Alto Tajo']},
-{id:'e',im:5438795,t:'Piso reformado en el centro',z:'Guadalajara',op:'Alquiler',tipo:'Piso',p:850,h:2,b:1,m:74,d:'Piso exterior totalmente reformado, con cocina equipada y calefacción central. Céntrico y muy bien comunicado.',f:['Amueblado','Calefacción central','Exterior','Balcón']},
-{id:'f',im:10530185,t:'Estudio junto a la universidad',z:'Alcalá de Henares',op:'Alquiler',tipo:'Piso',p:620,h:1,b:1,m:42,d:'Estudio moderno y funcional a cinco minutos del campus. Gastos de comunidad incluidos.',f:['Amueblado','Comunidad incluida','Fibra','Cerca campus']},
-{id:'g',im:27307397,t:'Dúplex con terraza',z:'Guadalajara',op:'Alquiler',tipo:'Piso',p:1150,h:3,b:2,m:112,d:'Dúplex luminoso con terraza y garaje en zona residencial, con excelentes comunicaciones.',f:['Terraza','Garaje','Ascensor','Zona residencial']},
-{id:'h',im:129494,t:'Piso familiar con garaje',z:'Guadalajara',op:'Venta',tipo:'Piso',p:189000,h:3,b:2,m:104,d:'Piso familiar con tres dormitorios, plaza de garaje y trastero. Zona tranquila con parques y colegios.',f:['Garaje','Trastero','Zona colegios','Exterior']}
+{id:'a',im:31817156,img:'img/villa-azuqueca.jpg',t:'Villa moderna con piscina',z:'Azuqueca de Henares',op:'Venta',tipo:'Casa',p:495000,h:5,b:4,m:320,d:'Villa de diseño en parcela de 900 m² con piscina, salón acristalado y cocina abierta. Suelo radiante y domótica en toda la casa.',f:['Piscina','Garaje 2 coches','Domótica','Jardín']},
+{id:'b',im:30587187,img:'img/atico-alcala.jpg',t:'Ático con terraza y vistas',z:'Alcalá de Henares',op:'Venta',tipo:'Piso',p:289000,h:3,b:2,m:118,d:'Ático luminoso con terraza de 30 m² en el centro de Alcalá, a cinco minutos de la Calle Mayor. Reformado en 2024.',f:['Terraza','Ascensor','Aire acondicionado','Trastero']},
+{id:'c',im:8134750,img:'img/chalet-azuqueca.jpg',t:'Chalet con jardín y piscina',z:'Azuqueca de Henares',op:'Venta',tipo:'Casa',p:365000,h:4,b:3,m:186,d:'Chalet en urbanización tranquila con jardín privado, garaje y piscina. Colegios y tren a pie.',f:['Jardín','Garaje','Piscina','Cerca del tren']},
+{id:'d',im:27789438,img:'img/casa-molina.jpg',t:'Casa de pueblo restaurada',z:'Molina de Aragón',op:'Venta',tipo:'Casa',p:142000,h:4,b:2,m:210,d:'Casa de piedra restaurada con vigas vistas, chimenea y patio. Ideal como vivienda o casa rural en pleno Alto Tajo.',f:['Chimenea','Patio','Vigas vistas','Alto Tajo']},
+{id:'e',im:5438795,img:'img/piso-guadalajara-centro.jpg',t:'Piso reformado en el centro',z:'Guadalajara',op:'Alquiler',tipo:'Piso',p:850,h:2,b:1,m:74,d:'Piso exterior totalmente reformado, con cocina equipada y calefacción central. Céntrico y muy bien comunicado.',f:['Amueblado','Calefacción central','Exterior','Balcón']},
+{id:'f',im:10530185,img:'img/estudio-alcala.jpg',t:'Estudio junto a la universidad',z:'Alcalá de Henares',op:'Alquiler',tipo:'Piso',p:620,h:1,b:1,m:42,d:'Estudio moderno y funcional a cinco minutos del campus. Gastos de comunidad incluidos.',f:['Amueblado','Comunidad incluida','Fibra','Cerca campus']},
+{id:'g',im:27307397,img:'img/duplex-guadalajara.jpg',t:'Dúplex con terraza',z:'Guadalajara',op:'Alquiler',tipo:'Piso',p:1150,h:3,b:2,m:112,d:'Dúplex luminoso con terraza y garaje en zona residencial, con excelentes comunicaciones.',f:['Terraza','Garaje','Ascensor','Zona residencial']},
+{id:'h',im:129494,img:'img/piso-familiar-guadalajara.jpg',t:'Piso familiar con garaje',z:'Guadalajara',op:'Venta',tipo:'Piso',p:189000,h:3,b:2,m:104,d:'Piso familiar con tres dormitorios, plaza de garaje y trastero. Zona tranquila con parques y colegios.',f:['Garaje','Trastero','Zona colegios','Exterior']}
 ];
-const HERO=[{im:106399,c:'Casa en Alcalá de Henares'},{im:31817156,c:'Villa moderna · Azuqueca de Henares',id:'a'},{im:27789438,c:'Casa de piedra · Molina de Aragón',id:'d'}];
+const HERO=[{im:106399,img:'img/hero-casa-alcala.jpg',c:'Casa en Alcalá de Henares'},{im:31817156,img:'img/villa-azuqueca.jpg',c:'Villa moderna · Azuqueca de Henares',id:'a'},{im:27789438,img:'img/casa-molina.jpg',c:'Casa de piedra · Molina de Aragón',id:'d'}];
 const $=s=>document.querySelector(s),fmt=n=>n.toLocaleString('es-ES');
 const url=(p,w)=>p.img||`https://images.pexels.com/photos/${p.im}/pexels-photo-${p.im}.jpeg?auto=compress&cs=tinysrgb&w=${w}`;
 const art=(p,w=900)=>`<img src="${url(p,w)}" alt="${p.t||''}" loading="lazy" onerror="fb(this)">`;
@@ -286,7 +286,7 @@ function go(n){sl[cur].classList.remove('on');cur=(n+sl.length)%sl.length;sl[cur
 $('#prev').onclick=()=>go(cur-1);$('#next').onclick=()=>go(cur+1);
 $('#play').onclick=()=>open(HERO[cur].id||'a');
 go(0);
-$('#splitArt').innerHTML=art({im:8134745,t:'Casa moderna con piscina'},1000);
+$('#splitArt').innerHTML=art({im:8134745,img:'img/vender-casa-moderna.jpg',t:'Casa moderna con piscina'},1000);
 $('#form').onsubmit=e=>{e.preventDefault();$('#ok').textContent='Consulta enviada. Te respondemos en menos de 24 horas.';e.target.reset()};
 addEventListener('scroll',()=>$('#hd').classList.toggle('s',scrollY>60),{passive:true});
 render();
